@@ -2,7 +2,7 @@
 	> File Name: head.h
 	> Author:赵睿 
 	> Mail: 1767153298@qq.com
-	> Created Time: 2020年03月28日 星期六 16时04分40秒
+	> Created Time: 2020年03月28日 星期六 22时28分14秒
  ************************************************************************/
 
 #ifndef _HEAD_H
@@ -14,7 +14,7 @@
 #include<unistd.h>
 #include<fcntl.h>
 #include<pthread.h>
-#include<semaphore.h>
+//#include<stropts.h>
 #include<sys/types.h>
 #include<sys/stat.h>
 #include<sys/socket.h>
