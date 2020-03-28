@@ -19,7 +19,7 @@ int main(int argc, char ** argv) {
     while (1) {
         int fd;
         pthread_t tid;
-        if ((fd = accept(fd, NULL, NULL)) == -1) {
+        if ((fd = accept(server_listen, NULL, NULL)) == -1) {
             perror("accept");
             continue;
         }
