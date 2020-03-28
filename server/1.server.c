@@ -60,14 +60,20 @@ int socket_create(int port) {
     return server_listen;
 }
 
+void chstr(char *str) {
+    for (int i = 0; str[i]; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') str[i] -= 32;
+    }
+}
 
 void *start(void *sockfd) {
     int commufd = *((int *) sockfd);
     char buffer[1024];
     int len;
-    while ((len = recv(commufd, buffer, sizeof(buffer), 0))) {
+    while ((len = recv(commufd, buffer, sizeof(buffer), 0)) > 0) {
         write(1, buffer, len);
     }
+    close(commufd);
     return NULL;
 }
 
