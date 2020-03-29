@@ -15,7 +15,5 @@ void AddNumberHandler(int fd);
 void DelNumberHandler(int fd);
 void *work(void *arg);
 
-#define MAXCLINET 1024
-//int client_number;
-//pthread_mutex_t mutex;
+#define MAXCLIENT 1024
 #endif

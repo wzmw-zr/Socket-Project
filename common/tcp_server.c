@@ -48,7 +48,7 @@ int GetServerListen(char *port) {
 
 void AddNumberHandler(int fd) {
     pthread_mutex_lock(&mutex);
-    if (client_number == 1024) {
+    if (client_number == MAXCLIENT) {
         char buf[100] = "Sorry, the online devices is too much\n";
         send(fd, buf, strlen(buf), 0); 
         close(fd);
