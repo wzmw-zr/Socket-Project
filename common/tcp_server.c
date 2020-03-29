@@ -20,6 +20,14 @@ void CheckArg(int argc, char **argv) {
 int GetSocket() {
     int sockfd;
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) return -1;
+    struct linger optval;
+    optval.l_onoff = 1;
+    optval.l_linger = 0;
+    int errno;
+    if ((errno = setsockopt(sockfd, SOL_SOCKET, SO_LINGER, &optval, sizeof(optval))) == -1) {
+        perror("setsockopt");
+        exit(1);
+    }
     return sockfd;
 }
 

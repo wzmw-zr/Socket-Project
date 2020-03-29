@@ -23,6 +23,12 @@ int main(int argc, char ** argv) {
             perror("accept");
             continue;
         }
+        int ka_optval = 1, errno;
+        if ((errno = setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &ka_optval, sizeof(int)) == -1)) {
+            fprintf(stderr, "%s\n", strerror(errno));
+            close(fd);
+            continue;
+        }
         pthread_attr_t attr;
         pthread_attr_init(&attr);
         pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
